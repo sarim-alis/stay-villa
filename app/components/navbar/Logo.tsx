@@ -11,7 +11,7 @@ const Logo = () => {
       alt="Logo"
       className="hidden md:block cursor-pointer"
       height="200"
-      width="200"
+      width="100"
       src="/images/air.png"
     />
   );
