@@ -53,6 +53,7 @@ const RegisterModal: React.FC = () => {
                 title="Welcome to Airbnb"
                 subtitle="Create an account!"
             />
+            <Input />
         </div>
     )
 
