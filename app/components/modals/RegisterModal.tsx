@@ -13,10 +13,31 @@ import {
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 
 const RegisterModal: React.FC = () => {
+    const RegisterModal = useRegisterModal();
+    const [isLoading, setIsLoading] = useState(false);
+
+    const {
+        register,
+        handleSubmit,
+        formState: {
+            errors,
+        }
+    } = useForm<FieldValues>({
+        defaultValues: {
+            name: '',
+            email: '',
+            password: ''
+        }
+    });
+
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
+        setIsLoading(true);
+
+
+    }
+
   return (
-    <div>
-        RegisterModal
-    </div>
+    <div>RegisterModal</div>
   );
 };
 
