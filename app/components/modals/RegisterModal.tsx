@@ -11,9 +11,10 @@ import {
 } from 'react-hook-form';
 
 import useRegisterModal from '@/app/hooks/useRegisterModal';
+import Modal from './Modal';
 
 const RegisterModal: React.FC = () => {
-    const RegisterModal = useRegisterModal();
+    const registerModal = useRegisterModal();
     const [isLoading, setIsLoading] = useState(false);
 
     const {
@@ -33,11 +34,27 @@ const RegisterModal: React.FC = () => {
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
 
-
+        axios.post('/api/register', data)
+          .then(() => {
+            registerModal.onClose();
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          .finally(() => {
+            setIsLoading(false);
+          })
     }
 
   return (
-    <div>RegisterModal</div>
+    <Modal
+      disabled={isLoading}
+      isOpen={registerModal.isOpen}
+      title="Register"
+      actionLabel="Continue"
+      onClose={registerModal.onClose}
+      onSubmit={handleSubmit(onSubmit)}
+    />
   );
 };
 
