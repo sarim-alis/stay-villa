@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
 import RegisterModal from "./components/modals/RegisterModal";
+import ToasterProvider from "./providers/ToastProvider";
 
 export const metadata: Metadata = {
   title: "Stay Villa 🌟",
@@ -17,9 +18,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={font.className}>
-        <RegisterModal />
-        <Navbar />
-        {children}
+        <ToasterProvider />
+          <RegisterModal />
+          <Navbar />
+          {children}
       </body>
     </html>
   );
