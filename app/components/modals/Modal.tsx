@@ -69,6 +69,7 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <>
     <div
+      onClick={handleClose}
       className="
         justify-center
         items-center
@@ -99,6 +100,7 @@ const Modal: React.FC<ModalProps> = ({
       >
         {/* CONTENT */}
         <div 
+          onClick={(e) => e.stopPropagation()}
           className={`
             translate
             duration-300
