@@ -1,6 +1,6 @@
 'use client';
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-type SafeUser = { id: string; name?: string | null; email?: string | null; image?: string | null; };
+type SafeUser = { id: string; name?: string | null; email?: string | null; image?: string | null; favouriteIds?: string[]; };
 
 
 interface HeartButtonProps {
