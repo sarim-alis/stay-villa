@@ -100,6 +100,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
                 currentUser={currentUser}
               />
             </div>
+            </div>
             <div className='font-semibold text-lg'>
               {location?.region}, {location?.label}
             </div>
@@ -122,7 +123,6 @@ const ListingCard: React.FC<ListingCardProps> = ({
                 onClick={handleCancel}
               />
             )}
-          </div>
         </div>
       </div>
     );
