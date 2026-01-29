@@ -7,6 +7,8 @@ import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./providers/ToastProvider";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 
 export const metadata: Metadata = {
   title: "Stay Villa 🌟",
