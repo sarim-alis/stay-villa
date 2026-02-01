@@ -22,7 +22,7 @@ export async function POST(
     } = body;
 
     if (!listingId || !startDate || !endDate || !totalPrice) {
-        throw NextResponse.error();
+        return NextResponse.error();
     }
 
     const listingAndReservation = await prisma.listing.update({

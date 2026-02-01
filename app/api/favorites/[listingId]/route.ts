@@ -23,7 +23,7 @@ export async function POST(
     const { listingId } = resolvedParams;
 
     if (!listingId || typeof listingId !== "string") {
-        throw new Error("Invalid ID");
+        return NextResponse.error();
     }
 
     let favouriteIds = [...(currentUser.favouriteIds || [])];
@@ -58,7 +58,7 @@ export async function DELETE(
     const { listingId } = resolvedParams;
 
     if (!listingId || typeof listingId !== "string") {
-        throw new Error("Invalid ID");
+        return NextResponse.error();
     }
 
     let favouriteIds = [...(currentUser.favouriteIds || [])];

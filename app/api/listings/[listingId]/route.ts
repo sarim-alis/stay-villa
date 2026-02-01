@@ -23,7 +23,7 @@ export async function DELETE(
     const { listingId } = resolvedParams;
 
     if (!listingId || typeof listingId !== 'string') {
-        throw new Error('Invalid ID');
+        return NextResponse.error();
     }
 
     const listing = await prisma.listing.deleteMany({
