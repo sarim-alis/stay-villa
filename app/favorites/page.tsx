@@ -23,7 +23,7 @@ const ListingPage = async () => {
     return (
         <div>
          <FavoritesClient
-            lisings={listings}
+            listings={listings}
             currentUser={currentUser}
          />
         </div>
