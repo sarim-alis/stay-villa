@@ -22,7 +22,19 @@ const PropertiesPage = async () => {
         userId: currentUser.id
    });
 
-   if (listings.length === 0) {
+   const safeListings = listings.map((listing) => ({
+       ...listing,
+       createdAt: listing.createdAt.toISOString(),
+   }));
+
+   const safeUser = {
+       ...currentUser,
+       createdAt: currentUser.createdAt.toISOString(),
+       updatedAt: currentUser.updatedAt.toISOString(),
+       emailVerified: currentUser.emailVerified?.toISOString() || null,
+   };
+
+   if (safeListings.length === 0) {
     return (
       <div>
         <EmptyState
@@ -36,8 +48,8 @@ const PropertiesPage = async () => {
    return (
     <div>
       <PropertiesClient
-        listings={listings}
-        currentUser={currentUser}
+        listings={safeListings}
+        currentUser={safeUser}
       />
     </div>
    )

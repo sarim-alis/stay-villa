@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from "react";
 import { User } from "@prisma/client";
 import Container from "../Container";
 import Logo from "./Logo";
@@ -39,7 +40,9 @@ const Navbar: React.FC<NavbarProps> = ({
             </div>
         </Container>
       </div>
-      <Categories />
+      <Suspense fallback={null}>
+        <Categories />
+      </Suspense>
     </div>
   );
 };

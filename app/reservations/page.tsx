@@ -23,6 +23,13 @@ const ReservationsPage = async () => {
         authorId: currentUser.id
     });
 
+    const safeUser = {
+        ...currentUser,
+        createdAt: currentUser.createdAt.toISOString(),
+        updatedAt: currentUser.updatedAt.toISOString(),
+        emailVerified: currentUser.emailVerified?.toISOString() || null,
+    };
+
     if (reservations.length === 0) {
         return (
             <div>
@@ -38,7 +45,7 @@ const ReservationsPage = async () => {
         <div>
           <ReservationsClient
             reservations={reservations}
-            currentUser={currentUser}
+            currentUser={safeUser}
           />
         </div>
     )
