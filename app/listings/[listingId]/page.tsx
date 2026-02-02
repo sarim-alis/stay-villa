@@ -17,6 +17,13 @@ const ListingPage = async ({ params }: { params: IParams | Promise<IParams> }) =
   const reservations = await getReservations({ listingId: resolvedParams.listingId });
   const currentUser = await getCurrentUser();
 
+  const safeUser = currentUser ? {
+    ...currentUser,
+    createdAt: currentUser.createdAt.toISOString(),
+    updatedAt: currentUser.updatedAt.toISOString(),
+    emailVerified: currentUser.emailVerified?.toISOString() || null,
+  } : null;
+
   if (!listing) {
     return (
       <div>
@@ -30,7 +37,7 @@ const ListingPage = async ({ params }: { params: IParams | Promise<IParams> }) =
       <ListingClient
         listing={listing}
         reservations={reservations}
-        currentUser={currentUser}
+        currentUser={safeUser}
       />
     </div>
   );
